@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    All Profiles
+{% endblock title %}
+
+{% block content %}
+    {% for obj in qs %}
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="row">
+                    <div class="three wide column">
+                        <img src="{{obj.avatar.url}}" class="ui small circular image" alt="user profile image">
+                    </div>
+
+                    <div class="thirteen wide column">
+                        <h3>{{obj.user}}<br> <span style="font-size: 14px;">{{obj.status}} | {{obj.college}}</span></h3>
+                            <p>{{obj.bio}}</p>
+                            <a href="">
+                                <button class="ui primary button mb-5 w-big">See Profile</button>
+                            </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
